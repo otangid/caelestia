@@ -1,1 +1,95 @@
-/home/dikiz/.config/caelestia/shell.json
+{
+    "appearance": {
+        "font": {
+            "family": {
+                "mono": "JetBrainsMono NF"
+            }
+        },
+        "transparency": {
+            "enabled": true
+        }
+    },
+    "background": {
+        "desktopClock": {
+            "background": {
+                "enabled": true
+            },
+            "enabled": true,
+            "position": "top-right"
+        },
+        "visualiser": {
+            "enabled": true
+        }
+    },
+    "bar": {
+        "activeWindow": {
+            "compact": true,
+            "inverted": true
+        },
+        "clock": {
+            "background": true,
+            "showDate": true
+        },
+        "status": {
+            "showAudio": true,
+            "showKbLayout": true,
+            "showMicrophone": true
+        },
+        "tray": {
+            "background": true,
+            "compact": true,
+            "recolour": true
+        },
+        "workspaces": {
+            "occupiedBg": true,
+            "shown": 10
+        }
+    },
+    "general": {
+        "idle": {
+            "inhibitWhenAudio": true,
+            "lockBeforeSleep": true,
+            "timeouts": [
+                {
+                    "idleAction": "lock",
+                    "timeout": 900
+                },
+                {
+                    "idleAction": "hyprctl dispatch dpms off",
+                    "returnAction": "hyprctl dispatch dpms on",
+                    "timeout": 1800
+                },
+                {
+                    "idleAction": [
+                        "systemctl",
+                        "suspend-then-hibernate"
+                    ],
+                    "timeout": 3600
+                }
+            ]
+        }
+    },
+    "launcher": {
+        "maxShown": 5,
+        "maxWallpapers": 5,
+        "showOnHover": true,
+        "useFuzzy": {
+            "apps": true
+        }
+    },
+    "lock": {
+        "recolourLogo": true
+    },
+    "notifs": {
+        "defaultExpireTimeout": 3000
+    },
+    "services": {
+        "showLyrics": true,
+        "useFahrenheit": false,
+        "useFahrenheitPerformance": false,
+        "useTwelveHourClock": false
+    },
+    "utilities": {
+        "maxToasts": 3
+    }
+}
