@@ -187,6 +187,24 @@ if confirm-overwrite $config/fish
     ln -s (realpath fish) $config/fish
 end
 
+# Kitty
+if confirm-overwrite $config/kitty
+    log 'Installing kitty config...'
+    ln -s (realpath kitty) $config/kitty
+end
+
+# Micro
+if confirm-overwrite $config/micro
+    log 'Installing micro config...'
+    ln -s (realpath micro) $config/micro
+end
+
+# Zed
+if confirm-overwrite $config/zed
+    log 'Installing zed config...'
+    ln -s (realpath zed) $config/zed
+end
+
 # Fastfetch
 if confirm-overwrite $config/fastfetch
     log 'Installing fastfetch config...'
