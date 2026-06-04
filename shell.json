@@ -48,23 +48,25 @@
     "general": {
         "idle": {
             "inhibitWhenAudio": true,
-            "lockBeforeSleep": false,
+            "lockBeforeSleep": true,
             "timeouts": [
                 {
-                    "idleAction": "lock",
-                    "timeout": 1800
+                    "idleAction": [
+                        "hyprlock"
+                    ],
+                    "timeout": 180
                 },
                 {
                     "idleAction": "dpms off",
                     "returnAction": "dpms on",
-                    "timeout": 3600
+                    "timeout": 600
                 },
                 {
                     "idleAction": [
                         "systemctl",
                         "suspend"
                     ],
-                    "timeout": 7200
+                    "timeout": 900
                 }
             ]
         }
