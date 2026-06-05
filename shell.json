@@ -5,8 +5,15 @@
                 "mono": "JetBrainsMono NF"
             }
         },
+        "padding": {
+            "scale": 1
+        },
+        "spacing": {
+            "scale": 1
+        },
         "transparency": {
-            "enabled": true
+            "enabled": false,
+            "layers": 0.5
         }
     },
     "background": {
@@ -30,6 +37,7 @@
             "background": true,
             "showDate": true
         },
+        "dragThreshold": 10,
         "status": {
             "showAudio": true,
             "showKbLayout": true,
@@ -44,6 +52,13 @@
             "occupiedBg": true,
             "shown": 10
         }
+    },
+    "border": {
+        "rounding": 25,
+        "thickness": 10
+    },
+    "dashboard": {
+        "dragThreshold": 25
     },
     "general": {
         "idle": {
