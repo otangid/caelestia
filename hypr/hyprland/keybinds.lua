@@ -1,5 +1,5 @@
 local vars = require("variables")
-local fn   = require("hyprland.functions")
+local fn   = require("utils.functions")
 
 -- Launcher
 hl.bind("SUPER + SUPER_L", hl.dsp.global("caelestia:launcher"), { release = true })
@@ -48,22 +48,22 @@ for i = 1, 10 do
 end
 
 -- Go to workspace -1/+1
-hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "-1" }))
-hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "+1" }))
+hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "-1" }))
+hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "+1" }))
 hl.bind(vars.kbPrevWs, hl.dsp.focus({ workspace = "-1" }), { repeating = true })
 hl.bind(vars.kbNextWs, hl.dsp.focus({ workspace = "+1" }), { repeating = true })
 hl.bind("SUPER + Page_Up", hl.dsp.focus({ workspace = "-1" }), { repeating = true })
 hl.bind("SUPER + Page_down", hl.dsp.focus({ workspace = "+1" }), { repeating = true })
 
 -- Go to workspace group -1/+1
-hl.bind("CTRL + SUPER + mouse_down", hl.dsp.focus({ workspace = "-10" }))
-hl.bind("CTRL + SUPER + mouse_up", hl.dsp.focus({ workspace = "+10" }))
+hl.bind("CTRL + SUPER + mouse_up", hl.dsp.focus({ workspace = "-10" }))
+hl.bind("CTRL + SUPER + mouse_down", hl.dsp.focus({ workspace = "+10" }))
 
 -- Move window to workspace -1/+1
 hl.bind("SUPER + ALT + Page_Up", hl.dsp.window.move({ workspace = "-1" }), { repeating = true })
 hl.bind("SUPER + ALT + Page_Down", hl.dsp.window.move({ workspace = "+1" }), { repeating = true })
-hl.bind("SUPER + ALT + mouse_down", hl.dsp.window.move({ workspace = "-1" }))
-hl.bind("SUPER + ALT + mouse_up", hl.dsp.window.move({ workspace = "+1" }))
+hl.bind("SUPER + ALT + mouse_up", hl.dsp.window.move({ workspace = "-1" }))
+hl.bind("SUPER + ALT + mouse_down", hl.dsp.window.move({ workspace = "+1" }))
 hl.bind("CTRL + SUPER + SHIFT + right", hl.dsp.window.move({ workspace = "+1" }), { repeating = true })
 hl.bind("CTRL + SUPER + SHIFT + left", hl.dsp.window.move({ workspace = "-1" }), { repeating = true })
 
@@ -90,14 +90,14 @@ hl.bind("SUPER + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
 hl.bind("SUPER + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
 hl.bind("SUPER + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
 hl.bind("SUPER + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
-hl.bind("SUPER + Minus", hl.dsp.window.resize(fn.resize_active_window(-10, 0)), { repeating = true })
-hl.bind("SUPER + Equal", hl.dsp.window.resize(fn.resize_active_window(10, 0)), { repeating = true })
-hl.bind("SUPER + SHIFT + Minus", hl.dsp.window.resize(fn.resize_active_window(0, -10)), { repeating = true })
-hl.bind("SUPER + SHIFT + Equal", hl.dsp.window.resize(fn.resize_active_window(0, 10)), { repeating = true })
-hl.bind("SUPER + ALT + left", hl.dsp.window.resize(fn.resize_active_window(-10, 0)), { repeating = true })
-hl.bind("SUPER + ALT + right", hl.dsp.window.resize(fn.resize_active_window(10, 0)), { repeating = true })
-hl.bind("SUPER + ALT + up", hl.dsp.window.resize(fn.resize_active_window(0, -10)), { repeating = true })
-hl.bind("SUPER + ALT + down", hl.dsp.window.resize(fn.resize_active_window(0, 10)), { repeating = true })
+hl.bind("SUPER + Minus", fn.resize_active_window(-10, 0), { repeating = true })
+hl.bind("SUPER + Equal", fn.resize_active_window(10, 0), { repeating = true })
+hl.bind("SUPER + SHIFT + Minus", fn.resize_active_window(0, -10), { repeating = true })
+hl.bind("SUPER + SHIFT + Equal", fn.resize_active_window(0, 10), { repeating = true })
+hl.bind("SUPER + ALT + left", fn.resize_active_window(-10, 0), { repeating = true })
+hl.bind("SUPER + ALT + right", fn.resize_active_window(10, 0), { repeating = true })
+hl.bind("SUPER + ALT + up", fn.resize_active_window(0, -10), { repeating = true })
+hl.bind("SUPER + ALT + down", fn.resize_active_window(0, 10), { repeating = true })
 
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(vars.kbMoveWindow, hl.dsp.window.drag(), { mouse = true })
@@ -125,11 +125,11 @@ hl.bind(vars.kbToggleWindowFloating, hl.dsp.window.float())
 hl.bind(vars.kbCloseWindow, hl.dsp.window.close())
 
 -- Special workspace toggles
-hl.bind(vars.kbSpecialWs, hl.dsp.exec_cmd("caelestia toggle specialws"))
-hl.bind(vars.kbSystemMonitorWs, hl.dsp.exec_cmd("caelestia toggle sysmon"))
-hl.bind(vars.kbMusicWs, hl.dsp.exec_cmd("caelestia toggle music"))
-hl.bind(vars.kbCommunicationWs, hl.dsp.exec_cmd("caelestia toggle communication"))
-hl.bind(vars.kbTodoWs, hl.dsp.exec_cmd("caelestia toggle todo"))
+hl.bind(vars.kbSpecialWs, fn.toggle("specialws"))
+hl.bind(vars.kbSystemMonitorWs, fn.toggle("sysmon"))
+hl.bind(vars.kbMusicWs, fn.toggle("music"))
+hl.bind(vars.kbCommunicationWs, fn.toggle("communication"))
+hl.bind(vars.kbTodoWs, fn.toggle("todo"))
 
 -- Apps
 hl.bind(vars.kbTerminal, hl.dsp.exec_cmd(vars.terminal))
